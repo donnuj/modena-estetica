@@ -6,17 +6,28 @@ const year = new Date().getFullYear();
 
 export default function Footer() {
   return (
-    <footer
-      className="px-6 md:px-12 lg:px-20 py-10"
-      style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
-    >
-      <div className="max-w-[1400px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-5">
-        <span
-          className="font-display text-lg tracking-widest text-white/40"
-          style={{ fontFamily: "var(--font-bebas)" }}
-        >
-          MODENA ESTETICA AUTOMOTIVA
-        </span>
+    <footer style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+      {/* Faixa tricolor no rodape */}
+      <div className="flex h-[2px]">
+        <div className="flex-1" style={{ background: "var(--verde)" }} />
+        <div className="flex-1 bg-white/25" />
+        <div className="flex-1" style={{ background: "var(--rosso)" }} />
+      </div>
+
+      <div className="px-6 md:px-14 lg:px-24 py-10 max-w-[1400px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-5">
+        <div className="flex items-center gap-3">
+          <div className="flex h-[10px] rounded-[2px] overflow-hidden" style={{ gap: "1px" }}>
+            <div className="w-[5px]" style={{ background: "var(--verde)" }} />
+            <div className="w-[5px] bg-white/30" />
+            <div className="w-[5px]" style={{ background: "var(--rosso)" }} />
+          </div>
+          <span
+            className="text-[16px] tracking-widest"
+            style={{ color: "var(--text-secondary)", fontFamily: "var(--font-bebas)" }}
+          >
+            MODENA ESTETICA AUTOMOTIVA
+          </span>
+        </div>
 
         <div className="flex items-center gap-6">
           <a
@@ -24,18 +35,18 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
-            className="text-white/30 hover:text-white/70 transition-colors duration-300"
+            className="text-[--text-secondary] hover:text-[--text-primary] transition-colors duration-300"
           >
-            <InstagramLogo size={18} weight="light" />
+            <InstagramLogo size={17} weight="light" />
           </a>
           <a
             href={WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp"
-            className="text-white/30 hover:text-white/70 transition-colors duration-300"
+            className="text-[--text-secondary] hover:text-[--text-primary] transition-colors duration-300"
           >
-            <WhatsappLogo size={18} weight="light" />
+            <WhatsappLogo size={17} weight="light" />
           </a>
           <span className="text-[12px]" style={{ color: "var(--text-secondary)" }}>
             &copy; {year} Modena

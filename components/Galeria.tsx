@@ -2,95 +2,146 @@
 
 import { motion, useReducedMotion } from "motion/react";
 
+// Fotos reais de carros do Unsplash — IDs verificados
 const fotos = [
-  { seed: "polished-black-car-wet-reflections", label: "Polimento completo" },
-  { seed: "car-ceramic-coating-shine", label: "Vitrificacao Carbon 9H" },
-  { seed: "luxury-car-detail-wheel-chrome", label: "Detalhamento de rodas" },
-  { seed: "dark-car-after-wash-studio", label: "Lavagem tecnica" },
-  { seed: "car-engine-clean-detail", label: "Higienizacao interna" },
-  { seed: "black-suv-polished-evening", label: "Resultado final" },
+  {
+    id: "1492144534655-ae79c964c9d7",
+    label: "Polimento completo",
+    ratio: "4/3",
+  },
+  {
+    id: "1606152421802-db97b369848b",
+    label: "Vitrificacao Carbon 9H",
+    ratio: "3/4",
+  },
+  {
+    id: "1525609004556-c46c7d6cf023",
+    label: "Detalhamento de rodas",
+    ratio: "3/4",
+  },
+  {
+    id: "1580414057-3bcf4c62d3b4",
+    label: "Interior premium",
+    ratio: "4/3",
+  },
+  {
+    id: "1503736334956-4c8f8e92946d",
+    label: "Resultado final",
+    ratio: "3/4",
+  },
+  {
+    id: "1580273916550-caf68cd06945",
+    label: "Lavagem tecnica",
+    ratio: "4/3",
+  },
 ];
 
 export default function Galeria() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="galeria" className="py-28 md:py-36 overflow-hidden">
-      <div className="px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto mb-14">
+    <section id="galeria" style={{ padding: "112px 0", background: "var(--bg)" }}>
+      <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 24px" }}>
+
+        {/* Header */}
         <motion.div
           initial={reduce ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 16, marginBottom: 48 }}
         >
-          <h2
-            className="font-display leading-none tracking-wider text-white"
-            style={{
-              fontFamily: "var(--font-bebas)",
-              fontSize: "clamp(2.8rem, 6vw, 5.5rem)",
-            }}
-          >
-            RESULTADOS
+          <h2 style={{
+            fontFamily: "var(--font-bebas)",
+            fontSize: "clamp(2.8rem, 6vw, 5.5rem)",
+            lineHeight: 1,
+            letterSpacing: "0.04em",
+            color: "#F0F0F0",
+            margin: 0,
+          }}>
+            RESULTADOS<br />
+            <span style={{ color: "var(--rosso)" }}>REAIS</span>
           </h2>
-          <p
-            className="mt-3 text-[15px] max-w-[380px] leading-relaxed"
-            style={{ color: "var(--text-secondary)" }}
-          >
-            Cada trabalho conta uma historia. A Modena entrega transformacao real.
+          <p style={{ color: "var(--text-secondary)", fontSize: 14, lineHeight: 1.7, maxWidth: 280, margin: 0 }}>
+            Cada trabalho conta uma historia de transformacao. Veja o que a Modena entrega.
           </p>
         </motion.div>
-      </div>
 
-      {/* Masonry-style grid */}
-      <div className="px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {/* Grade de fotos */}
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: 12,
+        }}>
           {fotos.map((foto, i) => (
             <motion.div
-              key={foto.seed}
-              initial={reduce ? false : { opacity: 0, y: 32 }}
+              key={foto.id}
+              initial={reduce ? false : { opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{
-                duration: 0.8,
-                delay: i * 0.06,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="group relative overflow-hidden rounded-2xl"
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.75, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
               style={{
-                aspectRatio: i % 3 === 0 ? "4/3" : "3/4",
-                border: "1px solid rgba(255,255,255,0.06)",
+                position: "relative",
+                borderRadius: 16,
+                overflow: "hidden",
+                aspectRatio: foto.ratio,
+                border: "1px solid rgba(255,255,255,0.07)",
               }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={`https://picsum.photos/seed/${foto.seed}/${i % 3 === 0 ? "800/600" : "600/800"}`}
+                src={`https://images.unsplash.com/photo-${foto.id}?w=800&q=80&fit=crop&auto=format`}
                 alt={foto.label}
-                className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
-                style={{ filter: "brightness(0.7) contrast(1.05) saturate(0.9)" }}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  filter: "brightness(0.75) contrast(1.05) saturate(0.9)",
+                  display: "block",
+                  transition: "transform 0.6s cubic-bezier(0.32,0.72,0,1)",
+                }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1.05)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}
               />
 
-              {/* Label on hover */}
-              <div
-                className="absolute inset-0 flex items-end p-5 transition-opacity duration-400"
-                style={{
-                  background: "linear-gradient(to top, rgba(6,8,8,0.80) 0%, transparent 60%)",
-                  opacity: 0,
-                }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.opacity = "1"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.opacity = "0"; }}
-              >
-                <span
-                  className="text-[12px] uppercase tracking-[0.16em] text-white/70 font-medium"
-                >
+              {/* Label */}
+              <div style={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                padding: "32px 20px 18px",
+                background: "linear-gradient(to top, rgba(5,5,5,0.85) 0%, transparent 100%)",
+                display: "flex",
+                alignItems: "center",
+                gap: 8,
+              }}>
+                <div style={{ width: 5, height: 5, borderRadius: "50%", background: "var(--rosso)", flexShrink: 0 }} />
+                <span style={{
+                  color: "rgba(240,240,240,0.70)",
+                  fontSize: 11,
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                }}>
                   {foto.label}
                 </span>
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* TODO: substituir Unsplash por fotos reais dos trabalhos da Modena */}
       </div>
 
-      {/* TODO: substituir picsum por fotos reais dos trabalhos da Modena */}
+      {/* Mobile grid override */}
+      <style>{`
+        @media (max-width: 640px) {
+          #galeria .foto-grid { grid-template-columns: 1fr !important; }
+        }
+        @media (max-width: 900px) and (min-width: 641px) {
+          #galeria .foto-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+      `}</style>
     </section>
   );
 }

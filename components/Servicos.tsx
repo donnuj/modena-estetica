@@ -7,164 +7,165 @@ const servicos = [
   {
     icon: Drop,
     title: "Lavagem Tecnica",
-    desc: "Processo detalhado com produtos premium, removendo contaminantes sem agredir a pintura.",
-    size: "lg",
-    imgSeed: "car-wash-detail-dark",
+    desc: "Processo minucioso com produtos premium que removem contaminantes sem agredir a pintura original.",
+    cor: "#CC1814",
   },
   {
     icon: Sparkle,
     title: "Polimento",
-    desc: "Restauracao e realce do brilho original, eliminando arranhoes e oxidacoes.",
-    size: "md",
-    imgSeed: "car-polishing-dark",
+    desc: "Restauracao e realce do brilho original. Eliminamos arranhoes e oxidacao de forma definitiva.",
+    cor: "#009246",
   },
   {
     icon: ShieldCheck,
     title: "Vitrificacao",
-    desc: "Protecao duradoura com revestimento ceramico de alta performance.",
-    size: "sm",
-    imgSeed: "ceramic-coating-car",
+    desc: "Revestimento ceramico de alta performance. Protecao duradoura com acabamento espelhado.",
+    cor: "#CC1814",
   },
   {
     icon: Wrench,
     title: "Protecao de Chassis",
-    desc: "Tratamento anti-ferrugem e protecao estrutural para a parte inferior do veiculo.",
-    size: "sm",
-    imgSeed: "car-chassis-protection",
+    desc: "Tratamento anti-ferrugem e blindagem estrutural da parte inferior do veiculo.",
+    cor: "#009246",
   },
   {
     icon: Hexagon,
     title: "Carbon 9H",
-    desc: "Revestimento nano-ceramico de grau 9H. Dureza extrema, brilho espelhado.",
-    size: "md",
-    imgSeed: "carbon-ceramic-car-black",
+    desc: "Nano-ceramico grau 9H. Dureza extrema, brilho absoluto. O tratamento mais avancado do mercado.",
+    cor: "#CC1814",
   },
 ];
-
-function ServiceCard({
-  service,
-  index,
-}: {
-  service: (typeof servicos)[0];
-  index: number;
-}) {
-  const reduce = useReducedMotion();
-  const Icon = service.icon;
-
-  return (
-    <motion.div
-      initial={reduce ? false : { opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.25 }}
-      transition={{
-        duration: 0.7,
-        delay: index * 0.08,
-        ease: [0.16, 1, 0.3, 1],
-      }}
-      className="group relative overflow-hidden rounded-[1.5rem] flex flex-col justify-end p-0.5"
-      style={{
-        background: "rgba(255,255,255,0.04)",
-        border: "1px solid rgba(255,255,255,0.07)",
-        boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)",
-      }}
-    >
-      {/* Inner shell */}
-      <div
-        className="relative w-full h-full rounded-[calc(1.5rem-2px)] overflow-hidden flex flex-col justify-end"
-        style={{
-          background: "var(--surface)",
-          minHeight: service.size === "lg" ? 320 : service.size === "md" ? 260 : 220,
-        }}
-      >
-        {/* Background image */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={`https://picsum.photos/seed/${service.imgSeed}/800/500`}
-          alt=""
-          aria-hidden
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
-          style={{ filter: "brightness(0.18) saturate(0.8)" }}
-        />
-
-        {/* Gradient overlay */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(to top, rgba(6,8,8,0.95) 0%, rgba(6,8,8,0.60) 50%, transparent 100%)",
-          }}
-        />
-
-        {/* Content */}
-        <div className="relative z-10 p-6">
-          <div
-            className="w-9 h-9 rounded-xl flex items-center justify-center mb-3"
-            style={{
-              background: "rgba(74,158,255,0.10)",
-              border: "1px solid rgba(74,158,255,0.20)",
-            }}
-          >
-            <Icon size={18} weight="light" style={{ color: "var(--accent)" }} />
-          </div>
-          <h3
-            className="font-display text-2xl text-white tracking-wider mb-1.5"
-            style={{ fontFamily: "var(--font-bebas)" }}
-          >
-            {service.title}
-          </h3>
-          <p className="text-[13px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-            {service.desc}
-          </p>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
 
 export default function Servicos() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="servicos" className="py-28 md:py-36 px-6 md:px-12 lg:px-20">
-      <div className="max-w-[1400px] mx-auto">
+    <section id="servicos" style={{ padding: "112px 0", background: "var(--bg)" }}>
+      <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 24px" }}>
+
         {/* Header */}
-        <motion.div
-          initial={reduce ? false : { opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-14"
-        >
-          <h2
-            className="font-display leading-none tracking-wider text-white"
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 24, marginBottom: 56 }}>
+          <motion.h2
+            initial={reduce ? false : { opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             style={{
               fontFamily: "var(--font-bebas)",
               fontSize: "clamp(2.8rem, 6vw, 5.5rem)",
+              lineHeight: 1,
+              letterSpacing: "0.04em",
+              color: "#F0F0F0",
+              margin: 0,
             }}
           >
-            NOSSOS SERVICOS
-          </h2>
-          <p
-            className="mt-3 text-[15px] max-w-[420px] leading-relaxed"
-            style={{ color: "var(--text-secondary)" }}
+            NOSSOS<br />SERVICOS
+          </motion.h2>
+          <motion.p
+            initial={reduce ? false : { opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            style={{ color: "var(--text-secondary)", fontSize: 14, lineHeight: 1.7, maxWidth: 280, margin: 0 }}
           >
-            Cada veiculo recebe um tratamento personalizado, com os melhores produtos do mercado.
-          </p>
-        </motion.div>
-
-        {/* Asymmetric bento grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-          {/* Large card — spans 2 cols on lg */}
-          <div className="lg:col-span-2">
-            <ServiceCard service={servicos[0]} index={0} />
-          </div>
-          {/* Medium card */}
-          <ServiceCard service={servicos[1]} index={1} />
-          {/* Two small cards */}
-          <ServiceCard service={servicos[2]} index={2} />
-          <ServiceCard service={servicos[3]} index={3} />
-          {/* Medium card — spans 2 cols on lg */}
-          <ServiceCard service={servicos[4]} index={4} />
+            Cada servico e executado com os melhores produtos e tecnicas disponíveis no mercado.
+          </motion.p>
         </div>
+
+        {/* Grid 3 colunas */}
+        <div id="servicos-grid" style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gridTemplateRows: "auto auto",
+          gap: 12,
+        }}>
+          {servicos.map((s, i) => {
+            const Icon = s.icon;
+            const isSpan2 = i === 0 || i === 4;
+
+            return (
+              <motion.div
+                key={s.title}
+                initial={reduce ? false : { opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.65, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                style={{
+                  gridColumn: isSpan2 ? "span 2" : "span 1",
+                  position: "relative",
+                  borderRadius: 24,
+                  padding: 2,
+                  background: "rgba(255,255,255,0.05)",
+                  border: "1px solid rgba(255,255,255,0.10)",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)",
+                }}
+              >
+                {/* Faixa de cor no topo */}
+                <div style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 32,
+                  right: 32,
+                  height: 2,
+                  borderRadius: "0 0 4px 4px",
+                  background: s.cor,
+                }} />
+
+                {/* Inner */}
+                <div style={{
+                  borderRadius: 22,
+                  background: "var(--surface)",
+                  padding: "36px 32px",
+                  minHeight: 220,
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 20,
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)",
+                }}>
+                  {/* Icone */}
+                  <div style={{
+                    width: 44,
+                    height: 44,
+                    borderRadius: 12,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    background: `${s.cor}14`,
+                    border: `1px solid ${s.cor}28`,
+                  }}>
+                    <Icon size={22} weight="light" style={{ color: s.cor }} />
+                  </div>
+
+                  {/* Texto */}
+                  <div>
+                    <h3 style={{
+                      fontFamily: "var(--font-bebas)",
+                      fontSize: "1.85rem",
+                      letterSpacing: "0.04em",
+                      color: "#F0F0F0",
+                      lineHeight: 1,
+                      marginBottom: 10,
+                    }}>
+                      {s.title}
+                    </h3>
+                    <p style={{ color: "var(--text-secondary)", fontSize: 14, lineHeight: 1.7 }}>
+                      {s.desc}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Mobile: override para 1 coluna */}
+        <style>{`
+          @media (max-width: 767px) {
+            #servicos-grid > div {
+              grid-column: span 1 !important;
+            }
+          }
+        `}</style>
       </div>
     </section>
   );

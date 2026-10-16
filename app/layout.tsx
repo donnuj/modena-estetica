@@ -34,12 +34,7 @@ export const metadata: Metadata = {
   },
 };
 
-type LayoutProps<T extends string> = {
-  children: React.ReactNode;
-  params?: Promise<Record<T, string>>;
-};
-
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="pt-BR"

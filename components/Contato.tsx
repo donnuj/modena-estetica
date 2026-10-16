@@ -107,7 +107,7 @@ export default function Contato() {
 
               <div className="flex flex-col gap-4">
                 <div className="flex items-start gap-3">
-                  <MapPin size={18} weight="light" style={{ color: "var(--accent)", marginTop: 2, shrink: 0 }} className="shrink-0" />
+                  <MapPin size={18} weight="light" style={{ color: "var(--accent)", marginTop: 2, flexShrink: 0 }} className="shrink-0" />
                   <div>
                     <p className="text-[13px] text-white/80 leading-relaxed">
                       Brasilia, DF

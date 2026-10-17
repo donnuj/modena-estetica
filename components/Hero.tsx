@@ -70,13 +70,13 @@ export default function Hero() {
         }}
       />
 
-      {/* Conteúdo — ancorado no fundo via flex */}
+      {/* Conteúdo — centralizado verticalmente */}
       <div
         style={{
           position: "absolute",
           inset: 0,
           display: "flex",
-          alignItems: "flex-end",
+          alignItems: "center",
         }}
       >
         <div
@@ -85,7 +85,7 @@ export default function Hero() {
             width: "100%",
             maxWidth: 1400,
             margin: "0 auto",
-            padding: "0 24px 80px",
+            padding: "0 24px",
           }}
         >
           {/* Eyebrow tricolor */}
@@ -137,9 +137,9 @@ export default function Hero() {
           >
             MAIS QUE
             <br />
-            <span style={{ color: "var(--rosso)" }}>ESTETICA,</span>
+            <span style={{ color: "var(--rosso)" }}>ESTÉTICA,</span>
             <br />
-            UMA EXPERIENCIA
+            UMA EXPERIÊNCIA
           </motion.h1>
 
           {/* Linha vermelha */}
@@ -237,10 +237,10 @@ export default function Hero() {
       {/* Responsive padding */}
       <style>{`
         @media (min-width: 768px) {
-          .hero-content { padding: 0 56px 100px !important; }
+          .hero-content { padding: 0 56px !important; }
         }
         @media (min-width: 1024px) {
-          .hero-content { padding: 0 96px 112px !important; }
+          .hero-content { padding: 0 96px !important; }
         }
       `}</style>
     </section>

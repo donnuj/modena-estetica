@@ -11,6 +11,7 @@ const servicos = [
     title: "Lavagem Técnica",
     desc: "Processo minucioso com produtos premium que removem contaminantes sem agredir a pintura original.",
     cor: "#CC1814",
+    photo: "1580273916550-caf68cd06945",
     placement: { gridColumn: "1", gridRow: "1" },
   },
   {
@@ -18,6 +19,7 @@ const servicos = [
     title: "Polimento",
     desc: "Restauração e realce do brilho original. Eliminamos arranhões e oxidação de forma definitiva.",
     cor: "#009246",
+    photo: "1492144534655-ae79c964c9d7",
     placement: { gridColumn: "2", gridRow: "1" },
   },
   {
@@ -25,6 +27,7 @@ const servicos = [
     title: "Vitrificação",
     desc: "Revestimento cerâmico de alta performance. Proteção duradoura com acabamento espelhado.",
     cor: "#CC1814",
+    photo: "1606152421802-db97b369848b",
     placement: { gridColumn: "1", gridRow: "2" },
   },
   {
@@ -32,6 +35,7 @@ const servicos = [
     title: "Proteção de Chassis",
     desc: "Tratamento anti-ferrugem e blindagem estrutural da parte inferior do veículo.",
     cor: "#009246",
+    photo: "1525609004556-c46c7d6cf023",
     placement: { gridColumn: "2", gridRow: "2" },
   },
   {
@@ -39,6 +43,7 @@ const servicos = [
     title: "Carbon 9H",
     desc: "Nano-cerâmico grau 9H. Dureza extrema, brilho absoluto. O tratamento mais avançado do mercado. Proteção de até 5 anos com resistência química e térmica incomparável.",
     cor: "#CC1814",
+    photo: "1503736334956-4c8f8e92946d",
     placement: { gridColumn: "3", gridRow: "1 / span 2" },
     featured: true,
   },
@@ -142,8 +147,28 @@ export default function Servicos() {
                     gap: 20,
                     boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)",
                     minHeight: s.featured ? 0 : 200,
+                    position: "relative",
+                    overflow: "hidden",
                   }}
                 >
+                  {/* Foto de fundo (placeholder — substituir pelas fotos reais) */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={`https://images.unsplash.com/photo-${s.photo}?w=800&q=75&fit=crop&auto=format`}
+                    alt=""
+                    aria-hidden
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: "center",
+                      filter: "brightness(0.18) saturate(0.7)",
+                      transition: "filter 0.6s cubic-bezier(0.32,0.72,0,1)",
+                    }}
+                    className="srv-bg-img"
+                  />
                   {/* Ícone */}
                   <div
                     style={{
@@ -156,13 +181,15 @@ export default function Servicos() {
                       background: `${s.cor}18`,
                       border: `1px solid ${s.cor}30`,
                       flexShrink: 0,
+                      position: "relative",
+                      zIndex: 1,
                     }}
                   >
                     <Icon size={22} weight="light" style={{ color: s.cor }} />
                   </div>
 
                   {/* Texto */}
-                  <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 10 }}>
+                  <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 10, position: "relative", zIndex: 1 }}>
                     <h3
                       style={{
                         fontFamily: "var(--font-bebas)",
@@ -192,6 +219,8 @@ export default function Servicos() {
                         background: `${s.cor}18`,
                         border: `1px solid ${s.cor}30`,
                         width: "fit-content",
+                        position: "relative",
+                        zIndex: 1,
                       }}
                     >
                       <div style={{ width: 5, height: 5, borderRadius: "50%", background: s.cor }} />
@@ -206,8 +235,10 @@ export default function Servicos() {
           })}
         </div>
 
-        {/* Mobile: 1 coluna */}
         <style>{`
+          #servicos-grid > div:hover .srv-bg-img {
+            filter: brightness(0.30) saturate(0.8) !important;
+          }
           @media (max-width: 767px) {
             #servicos-grid > div {
               grid-column: 1 !important;

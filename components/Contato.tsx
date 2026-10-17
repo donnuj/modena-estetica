@@ -196,7 +196,7 @@ export default function Contato() {
                   <Clock size={16} weight="light" style={{ color: "var(--verde)", marginTop: 2, flexShrink: 0 }} />
                   <div>
                     <p style={{ fontSize: 13, color: "rgba(240,240,240,0.80)", margin: "0 0 2px" }}>
-                      Seg a Sab — 08h às 18h
+                      Seg a Sáb, 08h às 18h
                     </p>
                     <p style={{ fontSize: 12, color: "var(--text-secondary)", margin: 0 }}>
                       Agendamento prévio necessário

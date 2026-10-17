@@ -11,7 +11,7 @@ const fotos = [
   },
   {
     id: "1606152421802-db97b369848b",
-    label: "Vitrificacao Carbon 9H",
+    label: "Vitrificação Carbon 9H",
     ratio: "3/4",
   },
   {
@@ -31,7 +31,7 @@ const fotos = [
   },
   {
     id: "1580273916550-caf68cd06945",
-    label: "Lavagem tecnica",
+    label: "Lavagem técnica",
     ratio: "4/3",
   },
 ];
@@ -68,7 +68,7 @@ export default function Galeria() {
         </motion.div>
 
         {/* Grade de fotos */}
-        <div style={{
+        <div className="foto-grid" style={{
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
           gap: 12,

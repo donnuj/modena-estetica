@@ -116,7 +116,7 @@ export default function Hero() {
                 textTransform: "uppercase",
               }}
             >
-              Brasília, DF — Estética Automotiva
+              Brasília, DF · Estética Automotiva
             </span>
           </motion.div>
 

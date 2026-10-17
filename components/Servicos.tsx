@@ -53,7 +53,7 @@ export default function Servicos() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="servicos" style={{ padding: "112px 0", background: "var(--bg)" }} className="sec-pad">
+    <section id="servicos" className="sec-pad" style={{ padding: "112px 0", background: "var(--bg)" }}>
       <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 24px" }}>
 
         {/* Header */}
@@ -85,7 +85,7 @@ export default function Servicos() {
           </motion.p>
         </div>
 
-        {/* Bento grid — 3 colunas, Carbon 9H ocupa a col 3 em ambas as linhas */}
+        {/* Bento grid */}
         <div
           id="servicos-grid"
           style={{
@@ -107,7 +107,6 @@ export default function Servicos() {
                 transition={{ duration: 0.65, delay: i * 0.07, ease: EASE }}
                 style={{
                   ...s.placement,
-                  position: "relative",
                   borderRadius: 24,
                   padding: 2,
                   background: s.featured
@@ -119,64 +118,94 @@ export default function Servicos() {
                   boxShadow: s.featured
                     ? `inset 0 1px 0 rgba(255,255,255,0.08), 0 0 40px ${s.cor}10`
                     : "inset 0 1px 0 rgba(255,255,255,0.05)",
+                  overflow: "hidden",
+                  display: "flex",
+                  flexDirection: "column",
                 }}
               >
-                {/* Faixa de cor no topo */}
+                {/* Seção da foto */}
                 <div
                   style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 32,
-                    right: 32,
-                    height: 2,
-                    borderRadius: "0 0 4px 4px",
-                    background: s.cor,
-                    opacity: s.featured ? 1 : 0.7,
-                  }}
-                />
-
-                {/* Inner card */}
-                <div
-                  className="srv-inner"
-                  style={{
-                    borderRadius: 22,
-                    backgroundImage: `linear-gradient(180deg, rgba(5,5,5,0.20) 0%, rgba(5,5,5,0.75) 65%), url(https://images.unsplash.com/photo-${s.photo}?w=800&q=75&fit=crop&auto=format)`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    backgroundColor: "var(--surface)",
-                    padding: s.featured ? "40px 32px" : "32px 28px",
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 20,
-                    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)",
-                    minHeight: s.featured ? 280 : 200,
-                    transition: "background-image 0.6s ease",
+                    position: "relative",
+                    overflow: "hidden",
+                    borderRadius: "22px 22px 0 0",
+                    aspectRatio: s.featured ? "4/3" : "16/9",
+                    flexShrink: 0,
                   }}
                 >
-                  {/* Ícone */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={`https://images.unsplash.com/photo-${s.photo}?w=800&q=80&fit=crop&auto=format`}
+                    alt=""
+                    aria-hidden
+                    className="srv-photo"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: "center",
+                      display: "block",
+                      filter: "brightness(0.88) contrast(1.05) saturate(0.85)",
+                      transition: "transform 0.7s cubic-bezier(0.32,0.72,0,1)",
+                    }}
+                  />
+                  {/* Fade para o conteúdo abaixo */}
                   <div
                     style={{
-                      width: 44,
-                      height: 44,
-                      borderRadius: 12,
+                      position: "absolute",
+                      bottom: 0, left: 0, right: 0,
+                      height: "55%",
+                      background: "linear-gradient(to top, var(--surface) 0%, transparent 100%)",
+                      pointerEvents: "none",
+                    }}
+                  />
+                  {/* Faixa de cor no topo */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0, left: 24, right: 24,
+                      height: 2,
+                      borderRadius: "0 0 3px 3px",
+                      background: s.cor,
+                      opacity: s.featured ? 1 : 0.75,
+                    }}
+                  />
+                </div>
+
+                {/* Seção de conteúdo */}
+                <div
+                  style={{
+                    flex: 1,
+                    background: "var(--surface)",
+                    borderRadius: "0 0 22px 22px",
+                    padding: s.featured ? "24px 32px 36px" : "20px 28px 28px",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 14,
+                    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: 10,
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       background: `${s.cor}18`,
-                      border: `1px solid ${s.cor}30`,
+                      border: `1px solid ${s.cor}28`,
                       flexShrink: 0,
                     }}
                   >
-                    <Icon size={22} weight="light" style={{ color: s.cor }} />
+                    <Icon size={20} weight="light" style={{ color: s.cor }} />
                   </div>
 
-                  {/* Texto */}
-                  <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 10 }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                     <h3
                       style={{
                         fontFamily: "var(--font-bebas)",
-                        fontSize: s.featured ? "2.2rem" : "1.75rem",
+                        fontSize: s.featured ? "2rem" : "1.6rem",
                         letterSpacing: "0.04em",
                         color: "#F0F0F0",
                         lineHeight: 1,
@@ -185,12 +214,11 @@ export default function Servicos() {
                     >
                       {s.title}
                     </h3>
-                    <p style={{ color: "var(--text-secondary)", fontSize: 14, lineHeight: 1.7, margin: 0 }}>
+                    <p style={{ color: "var(--text-secondary)", fontSize: 13, lineHeight: 1.7, margin: 0 }}>
                       {s.desc}
                     </p>
                   </div>
 
-                  {/* Badge premium no Carbon 9H */}
                   {s.featured && (
                     <div
                       style={{
@@ -202,6 +230,7 @@ export default function Servicos() {
                         background: `${s.cor}18`,
                         border: `1px solid ${s.cor}30`,
                         width: "fit-content",
+                        marginTop: "auto",
                       }}
                     >
                       <div style={{ width: 5, height: 5, borderRadius: "50%", background: s.cor }} />
@@ -217,8 +246,8 @@ export default function Servicos() {
         </div>
 
         <style>{`
-          #servicos-grid > div:hover .srv-inner {
-            filter: brightness(1.12);
+          #servicos-grid > div:hover .srv-photo {
+            transform: scale(1.04);
           }
           @media (max-width: 767px) {
             #servicos { padding: 72px 0 !important; }

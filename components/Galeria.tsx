@@ -97,7 +97,7 @@ export default function Galeria() {
                   width: "100%",
                   height: "100%",
                   objectFit: "cover",
-                  filter: "brightness(0.75) contrast(1.05) saturate(0.9)",
+                  filter: "brightness(0.92) contrast(1.02) saturate(0.95)",
                   display: "block",
                   transition: "transform 0.6s cubic-bezier(0.32,0.72,0,1)",
                 }}

@@ -11,7 +11,7 @@ const servicos = [
     title: "Lavagem Técnica",
     desc: "Processo minucioso com produtos premium que removem contaminantes sem agredir a pintura original.",
     cor: "#CC1814",
-    photo: "1580273916550-caf68cd06945",
+    photo: "1761312834150-4beefff097a7",
     placement: { gridColumn: "1", gridRow: "1" },
   },
   {
@@ -27,7 +27,7 @@ const servicos = [
     title: "Vitrificação",
     desc: "Revestimento cerâmico de alta performance. Proteção duradoura com acabamento espelhado.",
     cor: "#CC1814",
-    photo: "1606152421802-db97b369848b",
+    photo: "1633014041037-f5446fb4ce99",
     placement: { gridColumn: "1", gridRow: "2" },
   },
   {
@@ -43,7 +43,7 @@ const servicos = [
     title: "Carbon 9H",
     desc: "Nano-cerâmico grau 9H. Dureza extrema, brilho absoluto. O tratamento mais avançado do mercado. Proteção de até 5 anos com resistência química e térmica incomparável.",
     cor: "#CC1814",
-    photo: "1503736334956-4c8f8e92946d",
+    photo: "1771340742493-52fbd5476ccb",
     placement: { gridColumn: "3", gridRow: "1 / span 2" },
     featured: true,
   },

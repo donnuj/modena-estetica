@@ -10,7 +10,7 @@ const fotos = [
     ratio: "4/3",
   },
   {
-    id: "1606152421802-db97b369848b",
+    id: "1485291571150-772bcfc10da5",
     label: "Vitrificação Carbon 9H",
     ratio: "4/3",
   },
@@ -25,12 +25,12 @@ const fotos = [
     ratio: "4/3",
   },
   {
-    id: "1503736334956-4c8f8e92946d",
+    id: "1708805282683-50a060eba80f",
     label: "Resultado final",
     ratio: "4/3",
   },
   {
-    id: "1580273916550-caf68cd06945",
+    id: "1508974239320-0a029497e820",
     label: "Lavagem técnica",
     ratio: "4/3",
   },

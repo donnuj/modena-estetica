@@ -23,7 +23,7 @@ export default function Hero() {
       {/* Foto de fundo */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="https://images.unsplash.com/photo-1580273916550-caf68cd06945?w=1800&q=80&fit=crop&auto=format"
+        src="https://images.unsplash.com/photo-1771491237218-cbd4a707497e?w=1800&q=80&fit=crop&auto=format"
         alt=""
         aria-hidden
         loading="eager"

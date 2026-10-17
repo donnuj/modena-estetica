@@ -28,3 +28,6 @@ next-env.d.ts
 
 # cloudflare
 .wrangler/
+
+# screenshots de dev
+*.png

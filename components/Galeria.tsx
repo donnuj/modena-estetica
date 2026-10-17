@@ -12,22 +12,22 @@ const fotos = [
   {
     id: "1606152421802-db97b369848b",
     label: "Vitrificação Carbon 9H",
-    ratio: "3/4",
+    ratio: "4/3",
   },
   {
     id: "1525609004556-c46c7d6cf023",
     label: "Detalhamento de rodas",
-    ratio: "3/4",
+    ratio: "4/3",
   },
   {
-    id: "1580414057-3bcf4c62d3b4",
+    id: "1541899481282-d53bffe3c35d",
     label: "Interior premium",
     ratio: "4/3",
   },
   {
     id: "1503736334956-4c8f8e92946d",
     label: "Resultado final",
-    ratio: "3/4",
+    ratio: "4/3",
   },
   {
     id: "1580273916550-caf68cd06945",
@@ -85,6 +85,7 @@ export default function Galeria() {
                 borderRadius: 16,
                 overflow: "hidden",
                 aspectRatio: foto.ratio,
+                alignSelf: "start",
                 border: "1px solid rgba(255,255,255,0.07)",
               }}
             >

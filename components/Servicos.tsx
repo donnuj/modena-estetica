@@ -146,7 +146,7 @@ export default function Servicos() {
                     flexDirection: "column",
                     gap: 20,
                     boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)",
-                    minHeight: s.featured ? 0 : 200,
+                    minHeight: s.featured ? 280 : 200,
                     position: "relative",
                     overflow: "hidden",
                   }}
@@ -164,7 +164,7 @@ export default function Servicos() {
                       height: "100%",
                       objectFit: "cover",
                       objectPosition: "center",
-                      filter: "brightness(0.18) saturate(0.7)",
+                      filter: "brightness(0.45) saturate(0.8)",
                       transition: "filter 0.6s cubic-bezier(0.32,0.72,0,1)",
                     }}
                     className="srv-bg-img"
@@ -237,7 +237,7 @@ export default function Servicos() {
 
         <style>{`
           #servicos-grid > div:hover .srv-bg-img {
-            filter: brightness(0.30) saturate(0.8) !important;
+            filter: brightness(0.55) saturate(0.9) !important;
           }
           @media (max-width: 767px) {
             #servicos-grid > div {

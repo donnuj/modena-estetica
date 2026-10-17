@@ -70,8 +70,9 @@ export default function Hero() {
         }}
       />
 
-      {/* Conteúdo — centralizado verticalmente */}
+      {/* Conteúdo */}
       <div
+        className="hero-wrapper"
         style={{
           position: "absolute",
           inset: 0,
@@ -234,8 +235,11 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Responsive padding */}
       <style>{`
+        @media (max-width: 767px) {
+          .hero-wrapper { align-items: flex-start !important; }
+          .hero-content { padding: 108px 24px 60px !important; }
+        }
         @media (min-width: 768px) {
           .hero-content { padding: 0 56px !important; }
         }

@@ -53,7 +53,7 @@ export default function Servicos() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="servicos" style={{ padding: "112px 0", background: "var(--bg)" }}>
+    <section id="servicos" style={{ padding: "112px 0", background: "var(--bg)" }} className="sec-pad">
       <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 24px" }}>
 
         {/* Header */}
@@ -140,7 +140,7 @@ export default function Servicos() {
                   className="srv-inner"
                   style={{
                     borderRadius: 22,
-                    backgroundImage: `linear-gradient(rgba(10,10,10,0.58), rgba(10,10,10,0.58)), url(https://images.unsplash.com/photo-${s.photo}?w=800&q=75&fit=crop&auto=format)`,
+                    backgroundImage: `linear-gradient(180deg, rgba(5,5,5,0.20) 0%, rgba(5,5,5,0.75) 65%), url(https://images.unsplash.com/photo-${s.photo}?w=800&q=75&fit=crop&auto=format)`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundColor: "var(--surface)",
@@ -218,9 +218,13 @@ export default function Servicos() {
 
         <style>{`
           #servicos-grid > div:hover .srv-inner {
-            filter: brightness(1.15);
+            filter: brightness(1.12);
           }
           @media (max-width: 767px) {
+            #servicos { padding: 72px 0 !important; }
+            #servicos-grid {
+              grid-template-columns: 1fr !important;
+            }
             #servicos-grid > div {
               grid-column: 1 !important;
               grid-row: auto !important;

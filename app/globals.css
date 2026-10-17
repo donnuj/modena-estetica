@@ -61,6 +61,14 @@ body::before {
   background-size: 200px 200px;
 }
 
+/* Padding mobile — override inline styles nas seções */
+@media (max-width: 767px) {
+  .sec-pad {
+    padding-top: 72px !important;
+    padding-bottom: 72px !important;
+  }
+}
+
 ::selection {
   background: var(--accent);
   color: #fff;

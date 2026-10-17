@@ -42,6 +42,7 @@ export default function Diferenciais() {
   return (
     <section
       id="diferenciais"
+      className="sec-pad"
       style={{ padding: "112px 0", background: "var(--bg)" }}
     >
       <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 24px" }}>

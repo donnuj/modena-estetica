@@ -13,6 +13,7 @@ export default function Contato() {
   return (
     <section
       id="contato"
+      className="sec-pad"
       style={{ padding: "112px 0", background: "var(--bg)", position: "relative", overflow: "hidden" }}
     >
       {/* Glow rosso */}

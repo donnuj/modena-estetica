@@ -40,7 +40,7 @@ export default function Galeria() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="galeria" style={{ padding: "112px 0", background: "var(--bg)" }}>
+    <section id="galeria" className="sec-pad" style={{ padding: "112px 0", background: "var(--bg)" }}>
       <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 24px" }}>
 
         {/* Header */}

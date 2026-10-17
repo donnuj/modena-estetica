@@ -20,7 +20,7 @@ const fotos = [
     ratio: "4/3",
   },
   {
-    id: "1541899481282-d53bffe3c35d",
+    id: "1494976388531-d1058494cdd8",
     label: "Interior premium",
     ratio: "4/3",
   },

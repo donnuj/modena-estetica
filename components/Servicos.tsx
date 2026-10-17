@@ -137,9 +137,13 @@ export default function Servicos() {
 
                 {/* Inner card */}
                 <div
+                  className="srv-inner"
                   style={{
                     borderRadius: 22,
-                    background: "var(--surface)",
+                    backgroundImage: `linear-gradient(rgba(10,10,10,0.58), rgba(10,10,10,0.58)), url(https://images.unsplash.com/photo-${s.photo}?w=800&q=75&fit=crop&auto=format)`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundColor: "var(--surface)",
                     padding: s.featured ? "40px 32px" : "32px 28px",
                     height: "100%",
                     display: "flex",
@@ -147,28 +151,9 @@ export default function Servicos() {
                     gap: 20,
                     boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)",
                     minHeight: s.featured ? 280 : 200,
-                    position: "relative",
-                    overflow: "hidden",
+                    transition: "background-image 0.6s ease",
                   }}
                 >
-                  {/* Foto de fundo (placeholder — substituir pelas fotos reais) */}
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={`https://images.unsplash.com/photo-${s.photo}?w=800&q=75&fit=crop&auto=format`}
-                    alt=""
-                    aria-hidden
-                    style={{
-                      position: "absolute",
-                      inset: 0,
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      objectPosition: "center",
-                      filter: "brightness(0.45) saturate(0.8)",
-                      transition: "filter 0.6s cubic-bezier(0.32,0.72,0,1)",
-                    }}
-                    className="srv-bg-img"
-                  />
                   {/* Ícone */}
                   <div
                     style={{
@@ -181,15 +166,13 @@ export default function Servicos() {
                       background: `${s.cor}18`,
                       border: `1px solid ${s.cor}30`,
                       flexShrink: 0,
-                      position: "relative",
-                      zIndex: 1,
                     }}
                   >
                     <Icon size={22} weight="light" style={{ color: s.cor }} />
                   </div>
 
                   {/* Texto */}
-                  <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 10, position: "relative", zIndex: 1 }}>
+                  <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 10 }}>
                     <h3
                       style={{
                         fontFamily: "var(--font-bebas)",
@@ -219,8 +202,6 @@ export default function Servicos() {
                         background: `${s.cor}18`,
                         border: `1px solid ${s.cor}30`,
                         width: "fit-content",
-                        position: "relative",
-                        zIndex: 1,
                       }}
                     >
                       <div style={{ width: 5, height: 5, borderRadius: "50%", background: s.cor }} />
@@ -236,8 +217,8 @@ export default function Servicos() {
         </div>
 
         <style>{`
-          #servicos-grid > div:hover .srv-bg-img {
-            filter: brightness(0.55) saturate(0.9) !important;
+          #servicos-grid > div:hover .srv-inner {
+            filter: brightness(1.15);
           }
           @media (max-width: 767px) {
             #servicos-grid > div {

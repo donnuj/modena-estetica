@@ -5,63 +5,107 @@ import { WhatsappLogo, InstagramLogo, MapPin, Clock } from "@phosphor-icons/reac
 
 const WHATSAPP = "https://wa.me/556196688626";
 const INSTAGRAM = "https://www.instagram.com/modenaesteticaauto/";
+const EASE = [0.16, 1, 0.3, 1] as const;
 
 export default function Contato() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="contato" className="py-28 md:py-40 px-6 md:px-14 lg:px-24 relative overflow-hidden">
-      {/* Glow rosso de fundo */}
+    <section
+      id="contato"
+      style={{ padding: "112px 0", background: "var(--bg)", position: "relative", overflow: "hidden" }}
+    >
+      {/* Glow rosso */}
       <div
-        className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] pointer-events-none"
         style={{
-          background:
-            "radial-gradient(ellipse at center, rgba(204,24,20,0.05) 0%, transparent 70%)",
+          position: "absolute",
+          top: "50%",
+          left: "33%",
+          transform: "translate(-50%, -50%)",
+          width: 700,
+          height: 400,
+          pointerEvents: "none",
+          background: "radial-gradient(ellipse at center, rgba(204,24,20,0.05) 0%, transparent 70%)",
           filter: "blur(60px)",
         }}
       />
 
-      <div className="max-w-[1400px] mx-auto relative z-10">
-        {/* Faixa tricolor */}
-        <div className="flex h-px mb-20 overflow-hidden rounded-full max-w-[200px]">
-          <div className="flex-1" style={{ background: "var(--verde)" }} />
-          <div className="flex-1 bg-white/20" />
-          <div className="flex-1" style={{ background: "var(--rosso)" }} />
+      <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 1 }}>
+
+        {/* Separador tricolor */}
+        <div
+          style={{
+            display: "flex",
+            height: 1,
+            marginBottom: 80,
+            maxWidth: 200,
+            overflow: "hidden",
+            borderRadius: 9999,
+          }}
+        >
+          <div style={{ flex: 1, background: "var(--verde)" }} />
+          <div style={{ flex: 1, background: "rgba(255,255,255,0.20)" }} />
+          <div style={{ flex: 1, background: "var(--rosso)" }} />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        {/* Grid 2 colunas */}
+        <div className="ctt-grid">
+
           {/* Esquerda: CTA */}
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, ease: EASE }}
           >
             <h2
-              className="leading-none tracking-wider text-white mb-6"
               style={{
                 fontFamily: "var(--font-bebas)",
                 fontSize: "clamp(3rem, 6.5vw, 6.5rem)",
+                lineHeight: 1,
+                letterSpacing: "0.04em",
+                color: "#F0F0F0",
+                marginBottom: 24,
               }}
             >
-              SEU VEICULO<br />
-              MERECE O<br />
+              SEU VEÍCULO
+              <br />
+              MERECE O
+              <br />
               <span style={{ color: "var(--rosso)" }}>MELHOR</span>
             </h2>
             <p
-              className="text-[15px] leading-relaxed mb-10 max-w-[360px]"
-              style={{ color: "var(--text-secondary)" }}
+              style={{
+                color: "var(--text-secondary)",
+                fontSize: 15,
+                lineHeight: 1.7,
+                maxWidth: 360,
+                marginBottom: 40,
+              }}
             >
               Agende agora pelo WhatsApp. Atendimento direto, sem burocracia.
-              Transforme seu veiculo com quem entende de verdade.
+              Transforme seu veículo com quem entende de verdade.
             </p>
 
             <a
               href={WHATSAPP}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 px-8 py-4 rounded-full text-[12px] uppercase tracking-[0.18em] font-medium text-white transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.97]"
-              style={{ background: "var(--rosso)" }}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 12,
+                padding: "14px 32px",
+                borderRadius: 9999,
+                background: "var(--rosso)",
+                color: "#fff",
+                fontSize: 12,
+                fontWeight: 600,
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                textDecoration: "none",
+                transition: "background 0.4s cubic-bezier(0.32,0.72,0,1), box-shadow 0.4s cubic-bezier(0.32,0.72,0,1), transform 0.12s ease",
+              }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
                 el.style.background = "#E01F1B";
@@ -72,10 +116,20 @@ export default function Contato() {
                 el.style.background = "var(--rosso)";
                 el.style.boxShadow = "none";
               }}
+              onMouseDown={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(0.97)"; }}
+              onMouseUp={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}
             >
               <span
-                className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
-                style={{ background: "rgba(255,255,255,0.15)" }}
+                style={{
+                  width: 32,
+                  height: 32,
+                  borderRadius: "50%",
+                  background: "rgba(255,255,255,0.15)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                }}
               >
                 <WhatsappLogo size={16} weight="fill" />
               </span>
@@ -83,106 +137,137 @@ export default function Contato() {
             </a>
           </motion.div>
 
-          {/* Direita: card de info */}
+          {/* Direita: card de informações */}
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="p-0.5 rounded-[1.5rem]"
+            transition={{ duration: 0.8, delay: 0.15, ease: EASE }}
             style={{
+              borderRadius: 24,
+              padding: 2,
               background: "rgba(255,255,255,0.03)",
-              border: "1px solid rgba(255,255,255,0.07)",
+              border: "1px solid rgba(255,255,255,0.08)",
             }}
           >
-            {/* Faixa tricolor no topo do card */}
-            <div className="flex h-[2px] rounded-t-[calc(1.5rem-2px)] overflow-hidden">
-              <div className="flex-1" style={{ background: "var(--verde)" }} />
-              <div className="flex-1 bg-white/30" />
-              <div className="flex-1" style={{ background: "var(--rosso)" }} />
+            {/* Faixa tricolor no topo */}
+            <div style={{ display: "flex", height: 2, borderRadius: "22px 22px 0 0", overflow: "hidden" }}>
+              <div style={{ flex: 1, background: "var(--verde)" }} />
+              <div style={{ flex: 1, background: "rgba(255,255,255,0.30)" }} />
+              <div style={{ flex: 1, background: "var(--rosso)" }} />
             </div>
 
             <div
-              className="rounded-b-[calc(1.5rem-2px)] p-8 flex flex-col gap-6"
               style={{
+                borderRadius: "0 0 22px 22px",
                 background: "var(--surface)",
-                boxShadow: "inset 0 -1px 0 rgba(255,255,255,0.04)",
+                padding: 32,
+                display: "flex",
+                flexDirection: "column",
+                gap: 24,
+                boxShadow: "inset 0 -1px 0 rgba(255,255,255,0.03)",
               }}
             >
               <h3
-                className="text-white tracking-wider"
-                style={{ fontFamily: "var(--font-bebas)", fontSize: "1.9rem" }}
+                style={{
+                  fontFamily: "var(--font-bebas)",
+                  fontSize: "1.9rem",
+                  letterSpacing: "0.04em",
+                  color: "#F0F0F0",
+                  lineHeight: 1,
+                  margin: 0,
+                }}
               >
-                MODENA ESTETICA
+                MODENA ESTÉTICA
               </h3>
 
-              <div className="flex flex-col gap-4">
-                <div className="flex items-start gap-3">
-                  <MapPin
-                    size={17}
-                    weight="light"
-                    style={{ color: "var(--rosso)", marginTop: 2, flexShrink: 0 }}
-                  />
+              <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                <div style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
+                  <MapPin size={16} weight="light" style={{ color: "var(--rosso)", marginTop: 2, flexShrink: 0 }} />
                   <div>
-                    <p className="text-[13px] text-white/80">Brasilia, DF</p>
-                    <p className="text-[12px]" style={{ color: "var(--text-secondary)" }}>
-                      Consulte o endereco pelo WhatsApp
+                    <p style={{ fontSize: 13, color: "rgba(240,240,240,0.80)", margin: "0 0 2px" }}>Brasília, DF</p>
+                    <p style={{ fontSize: 12, color: "var(--text-secondary)", margin: 0 }}>
+                      Consulte o endereço pelo WhatsApp
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <Clock
-                    size={17}
-                    weight="light"
-                    style={{ color: "var(--verde)", marginTop: 2, flexShrink: 0 }}
-                  />
+                <div style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
+                  <Clock size={16} weight="light" style={{ color: "var(--verde)", marginTop: 2, flexShrink: 0 }} />
                   <div>
-                    <p className="text-[13px] text-white/80">Seg a Sab — 08h ate 18h</p>
-                    <p className="text-[12px]" style={{ color: "var(--text-secondary)" }}>
-                      Agendamento previo necessario
+                    <p style={{ fontSize: 13, color: "rgba(240,240,240,0.80)", margin: "0 0 2px" }}>
+                      Seg a Sab — 08h às 18h
+                    </p>
+                    <p style={{ fontSize: 12, color: "var(--text-secondary)", margin: 0 }}>
+                      Agendamento prévio necessário
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div
-                className="h-px"
-                style={{ background: "rgba(255,255,255,0.05)" }}
-              />
+              <div style={{ height: 1, background: "rgba(255,255,255,0.06)" }} />
 
-              <div className="flex gap-3">
-                <a
-                  href={INSTAGRAM}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-full text-[11px] uppercase tracking-[0.12em] text-white/50 hover:text-white transition-all duration-300"
-                  style={{
-                    background: "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(255,255,255,0.07)",
-                  }}
-                >
-                  <InstagramLogo size={14} weight="light" />
-                  Instagram
-                </a>
-                <a
-                  href={WHATSAPP}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-full text-[11px] uppercase tracking-[0.12em] text-white/50 hover:text-white transition-all duration-300"
-                  style={{
-                    background: "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(255,255,255,0.07)",
-                  }}
-                >
-                  <WhatsappLogo size={14} weight="light" />
-                  WhatsApp
-                </a>
+              <div style={{ display: "flex", gap: 10 }}>
+                {[
+                  { href: INSTAGRAM, icon: InstagramLogo, label: "Instagram" },
+                  { href: WHATSAPP, icon: WhatsappLogo, label: "WhatsApp" },
+                ].map(({ href, icon: Icon, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 8,
+                      padding: "10px 16px",
+                      borderRadius: 9999,
+                      fontSize: 11,
+                      letterSpacing: "0.12em",
+                      textTransform: "uppercase",
+                      color: "rgba(240,240,240,0.50)",
+                      textDecoration: "none",
+                      background: "rgba(255,255,255,0.04)",
+                      border: "1px solid rgba(255,255,255,0.07)",
+                      transition: "color 0.25s ease, background 0.25s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.color = "#F0F0F0";
+                      el.style.background = "rgba(255,255,255,0.08)";
+                    }}
+                    onMouseLeave={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.color = "rgba(240,240,240,0.50)";
+                      el.style.background = "rgba(255,255,255,0.04)";
+                    }}
+                  >
+                    <Icon size={13} weight="light" />
+                    {label}
+                  </a>
+                ))}
               </div>
             </div>
           </motion.div>
         </div>
       </div>
+
+      <style>{`
+        .ctt-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 48px;
+          align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+          .ctt-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 80px;
+          }
+        }
+      `}</style>
     </section>
   );
 }

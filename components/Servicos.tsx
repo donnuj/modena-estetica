@@ -129,7 +129,8 @@ export default function Servicos() {
                     position: "relative",
                     overflow: "hidden",
                     borderRadius: "22px 22px 0 0",
-                    aspectRatio: s.featured ? "4/3" : "16/9",
+                    height: 0,
+                    paddingTop: s.featured ? "75%" : "56.25%",
                     flexShrink: 0,
                   }}
                 >

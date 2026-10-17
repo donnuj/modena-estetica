@@ -140,12 +140,14 @@ export default function Servicos() {
                     aria-hidden
                     className="srv-photo"
                     style={{
+                      position: "absolute",
+                      inset: 0,
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
                       objectPosition: "center",
                       display: "block",
-                      filter: "brightness(0.88) contrast(1.05) saturate(0.85)",
+                      filter: "saturate(0.88) contrast(1.03)",
                       transition: "transform 0.7s cubic-bezier(0.32,0.72,0,1)",
                     }}
                   />

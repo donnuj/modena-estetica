@@ -11,6 +11,7 @@ export default function Hero() {
 
   return (
     <section
+      className="hero-section"
       style={{
         position: "relative",
         height: "100dvh",
@@ -237,8 +238,9 @@ export default function Hero() {
 
       <style>{`
         @media (max-width: 767px) {
-          .hero-wrapper { align-items: flex-start !important; }
-          .hero-content { padding: 108px 24px 60px !important; }
+          .hero-section { height: auto !important; min-height: 0 !important; }
+          .hero-wrapper { position: static !important; display: block !important; }
+          .hero-content { padding: 104px 24px 72px !important; }
         }
         @media (min-width: 768px) {
           .hero-content { padding: 0 56px !important; }
